@@ -34,17 +34,19 @@ public class MemberController {
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String registration(@ModelAttribute("userForm") @Validated Member userForm, BindingResult bindingResult) {
+        log.debug("registration");
         memberValidator.validate(userForm, bindingResult);
+        log.debug("validate");
         if(bindingResult.hasErrors()) {
             log.debug("valid error");
             return "signup";
         }
         userForm.setRole(MemberRole.USER);
+        log.debug("setRole");
         memberService.save(userForm);
         log.debug("userInfo" + userForm.toString());
         log.debug("email" + userForm.getEmail() + "|" + userForm.getPassword());
-
-        return "redicrect:/welcome";
+        return "redirect:/welcome";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)

@@ -34,6 +34,7 @@ dependencies {
     implementation("com.querydsl:querydsl-apt")
 
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+    implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.webjars:webjars-locator-core")
